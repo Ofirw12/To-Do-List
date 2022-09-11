@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -11,7 +12,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://admin:KQ4KJ9APGaay-5V@cluster0.weootq2.mongodb.net/todolistDB");
+mongoose.connect("mongodb+srv://"+process.env.DB_USER+":"+process.env.DB_PASSWORD+"@cluster0.weootq2.mongodb.net/blogDB");
 //"mongodb://localhost:27017/todolistDB" localDB
 const itemsSchema = {
   name: String
